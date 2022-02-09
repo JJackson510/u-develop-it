@@ -20,9 +20,39 @@ const db = mysql.createConnection(
 );
 
 
-db.query(`select * from candidates`, (err,rows) => {
-    console.log(rows);
-})
+// db.query(`select * from candidates`, (err,rows) => {
+//     console.log(rows);
+// });
+
+//Get a single candidate
+// db.query(`select * from candidates where id = 1`,(err, row) => {
+//     if(err) {
+//         console.error(err);
+//     }
+//     console.log(row);
+// });
+
+//Delete a candidate
+// db.query(`delete from candidates where id = ?`, 1, (err, result) => {
+//     if(err) {
+//         console.error(err);
+//     }
+//     console.log(result);
+// });
+
+// Create a new candidate
+const sql = `insert into candidates (id,first_name,last_name, industry_connected)
+            values (?,?,?,?)`;
+
+const params = [1, 'Ronald', 'Firbank', 1];
+
+db.query(sql, params, (err, result) => {
+    if(err) {
+        console.error(err);
+    }
+    console.log(result);
+});
+
 app.use((req, res) => {
     res.status(404).end();
 });
