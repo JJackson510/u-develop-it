@@ -1,4 +1,9 @@
 
+create table parties(
+    id integer auto_increment primary key,
+    name varchar(50) not null,
+    description text
+);
 
 CREATE TABLE candidates (
 id INTEGER AUTO_INCREMENT PRIMARY KEY,
